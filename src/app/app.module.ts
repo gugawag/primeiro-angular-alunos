@@ -16,6 +16,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {LayoutModule} from './layout/layout.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import {HttpClientModule} from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MensagemService} from './shared/services/mensagem.service';
+import {MensagemSweetService} from './shared/services/mensagem-sweet.service';
+import {IMensagem} from './shared/modelo/IMensagem';
 
 @NgModule({
   declarations: [
@@ -35,9 +39,15 @@ import {HttpClientModule} from '@angular/common/http';
     MatMenuModule,
     LayoutModule,
     UsuarioModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: IMensagem,
+      useClass: MensagemService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
