@@ -20,7 +20,6 @@ export class ListagemUsuariosComponent implements OnInit{
       usuariosRetornados =>
         this.usuarios = usuariosRetornados
     );
-    console.log('estou aqui');
   }
 
   excluir(usuarioARemover: Usuario): void {

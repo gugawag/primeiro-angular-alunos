@@ -12,13 +12,16 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {PipesModule} from '../pipes/pipes.module';
 import {FlexModule} from '@angular/flex-layout';
 import {RouterLink} from '@angular/router';
+import { ListagemUsuariosTabelaComponent } from './listagem-usuarios-tabela/listagem-usuarios-tabela.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 
 @NgModule({
   declarations: [
     ListagemUsuariosComponent,
-    MantemUsuarioComponent
+    MantemUsuarioComponent,
+    ListagemUsuariosTabelaComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ import {RouterLink} from '@angular/router';
     MatBadgeModule,
     PipesModule,
     FlexModule,
-    RouterLink
+    RouterLink,
+    MatTableModule
   ],
   exports: [
     ListagemUsuariosComponent,
