@@ -42,6 +42,6 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
 
   editar(usuario: Usuario): void {
     console.log('editando');
-    this.roteador.navigate(['cadastrousuario', usuario.id]);
+    this.roteador.navigate(['editausuario', usuario.id]);
   }
 }
