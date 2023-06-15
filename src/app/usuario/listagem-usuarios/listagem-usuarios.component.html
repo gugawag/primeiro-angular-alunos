@@ -1,8 +1,8 @@
 <div>
-  <mat-icon [matBadge]="usuarios.length" matBadgeColor="primary">people</mat-icon>
+  <mat-icon [matBadge]="quantidadeDeUsuarios | async" matBadgeColor="primary">people</mat-icon>
 </div>
 <div fxLayout="row wrap" fxLayout.lt-sm="column">
-  <mat-card fxFlex="20" class="card-usuario" *ngFor="let usuario of usuarios">
+  <mat-card fxFlex="20" class="card-usuario" *ngFor="let usuario of usuarios | async">
     <mat-card-header>
       <mat-card-title>{{usuario.nome | titlecase}}</mat-card-title>
       <mat-card-subtitle *ngIf="usuario.cpf.length > 0">CPF: {{usuario.cpf | cpf}}</mat-card-subtitle>

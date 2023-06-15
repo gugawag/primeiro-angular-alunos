@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UsuarioService} from '../../shared/services/usuario.service';
 import {MensagemService} from '../../shared/services/mensagem.service';
 import {IMensagem} from '../../shared/modelo/IMensagem';
+import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 
 @Component({
   selector: 'app-mantem-usuario',
@@ -18,12 +19,12 @@ export class MantemUsuarioComponent {
   nomeBotaoManutencao = 'Cadastrar';
 
   constructor(private rotaAtual: ActivatedRoute, private roteador: Router,
-              private usuarioService: UsuarioService, private mensagemService: IMensagem) {
-    this.usuarioDeManutencao = new Usuario('', 0);
+              private usuarioService: UsuarioFirestoreService, private mensagemService: IMensagem) {
+    this.usuarioDeManutencao = new Usuario();
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('id');
     if (idParaEdicao) {
       // editando
-      this.usuarioService.pesquisarPorId(Number(idParaEdicao)).subscribe(
+      this.usuarioService.pesquisarPorId(idParaEdicao).subscribe(
         usuarioRetornado => {
           this.usuarioDeManutencao = usuarioRetornado;
           this.estahCadastrando = false;

@@ -3,6 +3,7 @@ import {Usuario} from '../../shared/modelo/usuario';
 import {MatTableDataSource} from '@angular/material/table';
 import {UsuarioService} from '../../shared/services/usuario.service';
 import {Router} from '@angular/router';
+import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 
 @Component({
   selector: 'app-listagem-usuarios-tabela',
@@ -13,7 +14,7 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario>;
   mostrarColunas = ['nome', 'cpf', 'idade', 'acoes'];
 
-  constructor(private usuarioService: UsuarioService, private roteador: Router) {
+  constructor(private usuarioService: UsuarioFirestoreService, private roteador: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -27,7 +28,7 @@ export class ListagemUsuariosTabelaComponent implements OnInit {
     this.dataSource.filter = texto.trim().toLowerCase();
   }
 
-  apagar(id: number): void {
+  apagar(id: string): void {
     console.log('apagando');
     this.usuarioService.apagar(id).subscribe(
       apagado => {
