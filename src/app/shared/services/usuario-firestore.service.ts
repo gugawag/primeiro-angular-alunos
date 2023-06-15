@@ -43,9 +43,10 @@ export class UsuarioFirestoreService {
 
 
   atualizar(usuario: Usuario): Observable<void> {
+    const id = usuario.id;
     // removendo id pois não vamos guardar nos dados do documento, mas sim usar apenas como id para recuperar o documento
     delete usuario.id;
-    return from(this.colecaoUsuarios.doc(usuario.id).update(Object.assign({}, usuario)));
+    return from(this.colecaoUsuarios.doc(id).update(Object.assign({}, usuario)));
   }
 
 
