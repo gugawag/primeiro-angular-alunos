@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import {Usuario} from '../../shared/modelo/usuario';
-import {USUARIOS} from '../../shared/modelo/USUARIOS';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsuarioService} from '../../shared/services/usuario.service';
-import {MensagemService} from '../../shared/services/mensagem.service';
 import {IMensagem} from '../../shared/modelo/IMensagem';
-import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 
 @Component({
   selector: 'app-mantem-usuario',

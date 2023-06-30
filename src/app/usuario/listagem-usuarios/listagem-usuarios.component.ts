@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Usuario} from '../../shared/modelo/usuario';
 import {map, Observable} from 'rxjs';
-import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 import {UsuarioService} from "../../shared/services/usuario.service";
 
 @Component({
