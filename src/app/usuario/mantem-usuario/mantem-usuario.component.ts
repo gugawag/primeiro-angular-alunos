@@ -19,12 +19,12 @@ export class MantemUsuarioComponent {
   nomeBotaoManutencao = 'Cadastrar';
 
   constructor(private rotaAtual: ActivatedRoute, private roteador: Router,
-              private usuarioService: UsuarioFirestoreService, private mensagemService: IMensagem) {
+              private usuarioService: UsuarioService, private mensagemService: IMensagem) {
     this.usuarioDeManutencao = new Usuario();
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('id');
     if (idParaEdicao) {
       // editando
-      this.usuarioService.pesquisarPorId(idParaEdicao).subscribe(
+      this.usuarioService.pesquisarPorId(Number(idParaEdicao)).subscribe(
         usuarioRetornado => {
           this.usuarioDeManutencao = usuarioRetornado;
           this.estahCadastrando = false;

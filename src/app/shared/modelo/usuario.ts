@@ -1,12 +1,12 @@
 export class Usuario {
 
-  id?: string;
+  id?: number;
   nome = '';
   cpf = '';
   idade?: number;
 
 
-  constructor(id?: string, usuario: Usuario = {nome: '', cpf: ''}) {
+  constructor(id?: number, usuario: Usuario = {nome: '', cpf: ''}) {
     this.id = id;
     this.cpf = usuario.cpf;
     this.nome = usuario.nome;

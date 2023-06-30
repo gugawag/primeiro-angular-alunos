@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/modelo/usuario';
 import {map, Observable} from 'rxjs';
 import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
+import {UsuarioService} from "../../shared/services/usuario.service";
 
 @Component({
   selector: 'app-listagem-usuarios',
@@ -13,15 +14,20 @@ export class ListagemUsuariosComponent {
   usuarios: Observable<Usuario[]>;
   quantidadeDeUsuarios: Observable<number>;
 
-  constructor(private usuarioService: UsuarioFirestoreService) {
+  constructor(private usuarioService: UsuarioService) {
     this.usuarios = usuarioService.listar();
-    this.quantidadeDeUsuarios = this.usuarios.pipe(map(usuarios => usuarios.length));
+    this.quantidadeDeUsuarios =
+      this.usuarios.pipe(map(usuarios => usuarios.length));
   }
 
   excluir(usuarioARemover: Usuario): void {
     if (usuarioARemover.id) {
       this.usuarioService.apagar(usuarioARemover.id).subscribe(
-        usuarioRemovido => {}
+        usuarioRemovido => {
+          this.usuarios = this.usuarios.pipe(
+            map(usuarios => usuarios.filter(usuario => usuario.id !== usuarioARemover.id))
+          );
+        }
       );
     }
 
