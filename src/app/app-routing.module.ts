@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MantemUsuarioComponent} from './usuario/mantem-usuario/mantem-usuario.component';
 import {ListagemUsuariosComponent} from './usuario/listagem-usuarios/listagem-usuarios.component';
 import {ListagemUsuariosTabelaComponent} from './usuario/listagem-usuarios-tabela/listagem-usuarios-tabela.component';
+import {MestreComponent} from "./mestredetalhe/mestre/mestre.component";
 
 const routes: Routes = [
   {
@@ -20,8 +21,11 @@ const routes: Routes = [
   {
     path: 'listagemusuariostabela',
     component: ListagemUsuariosTabelaComponent
+  },
+  {
+    path: 'mestredetalhe',
+    component: MestreComponent
   }
-
 ];
 
 @NgModule({

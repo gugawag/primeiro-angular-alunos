@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let item of itens">
+    <button (click)="selecionarItem(item)">{{item.nome}}</button>
+  </li>
+</ul>
+
+<app-detalhe [item]="usuarioSelecionado"
+             (itemRemovido)="remover(usuarioSelecionado)"
+             (itemAlterado)="editar($event)"
+>
+
+</app-detalhe>

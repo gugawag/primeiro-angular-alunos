@@ -20,6 +20,7 @@ import {MensagemService} from './shared/services/mensagem.service';
 import {IMensagem} from './shared/modelo/IMensagem';
 import {FirestoreModule} from './firestore/firestore.module';
 import {InterceptorModule} from "./interceptor/interceptor.module";
+import {MestredetalheModule} from "./mestredetalhe/mestredetalhe.module";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {InterceptorModule} from "./interceptor/interceptor.module";
     HttpClientModule,
     MatSnackBarModule,
     FirestoreModule,
-    InterceptorModule
+    InterceptorModule,
+    MestredetalheModule
   ],
   providers: [
     {

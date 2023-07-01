@@ -1,0 +1,6 @@
+<div *ngIf="item">
+  <h1>Detalhe do item</h1> <br>
+        {{item.nome}} - {{item.cpf}} - {{item.idade}} <br>
+  <button (click)="remover()">Remover Item</button>
+  <button (click)="editar()">Editar Item</button>
+</div>
